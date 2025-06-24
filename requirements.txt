@@ -1,0 +1,14 @@
+# Database Operations Utility Requirements
+# Install with: pip install -r requirements.txt
+
+# PostgreSQL adapter for Python
+psycopg2-binary==2.9.10
+
+# SQL toolkit and Object-Relational Mapping library
+SQLAlchemy==2.0.41
+
+# Additional dependencies for enhanced functionality (optional)
+# python-dotenv==1.0.0  # For .env file support
+# pandas==2.0.3         # For data analysis and manipulation
+# click==8.1.7          # For command-line interface
+
