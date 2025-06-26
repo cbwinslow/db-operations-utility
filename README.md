@@ -1,5 +1,12 @@
 # Database Operations Utility
 
+[![CI](https://github.com/cbwinslow/db-operations-utility/workflows/CI/CD%20Pipeline/badge.svg)](https://github.com/cbwinslow/db-operations-utility/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/cbwinslow/db-operations-utility/branch/main/graph/badge.svg)](https://codecov.io/gh/cbwinslow/db-operations-utility)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
+
 A comprehensive Python utility for handling PostgreSQL database operations using SQLAlchemy. This utility provides a clean, robust interface for common database tasks including connection management, CRUD operations, custom queries, and error handling.
 
 ## Features
@@ -274,6 +281,95 @@ Enable SQL query logging by setting `echo=True` in the configuration:
 4. **Batch operations** when possible
 5. **Close connections** when done
 
+## CI/CD Pipeline
+
+This project uses GitHub Actions for automated testing, quality assurance, and deployment. The CI/CD pipeline runs on every push and pull request.
+
+### Pipeline Stages
+
+1. **Code Linting** - Ensures code quality and consistency
+   - Black (code formatting)
+   - isort (import sorting)
+   - Flake8 (style guide enforcement)
+   - MyPy (type checking)
+   - Pylint (code analysis)
+
+2. **Unit Testing** - Runs comprehensive test suite
+   - Tests across Python 3.9, 3.10, 3.11, 3.12
+   - PostgreSQL integration testing
+   - Code coverage reporting
+   - Coverage uploaded to Codecov
+
+3. **Security Scanning** - Identifies potential security issues
+   - Bandit (security linter)
+   - Safety (dependency vulnerability check)
+   - Semgrep (static analysis)
+
+4. **Documentation Building** - Generates project documentation
+   - Sphinx documentation generation
+   - API documentation with autodoc
+   - HTML output for GitHub Pages
+
+5. **Deployment** - Automated releases (main branch only)
+   - Package building and validation
+   - Automated GitHub releases
+   - Version tagging
+
+### Local Development
+
+Run the full CI pipeline locally before pushing:
+
+```bash
+# Using Make (recommended)
+make ci
+
+# Or using the script directly
+./scripts/run_tests.sh
+
+# Individual commands
+make format    # Format code
+make lint      # Run linting
+make test      # Run tests
+make security  # Security scans
+make docs      # Build docs
+```
+
+### Development Workflow
+
+1. **Create a feature branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **Make your changes**
+   - Write code following project conventions
+   - Add tests for new functionality
+   - Update documentation as needed
+
+3. **Test locally**
+   ```bash
+   make ci  # Run full CI pipeline
+   ```
+
+4. **Commit and push**
+   ```bash
+   git add .
+   git commit -m "feat: add your feature description"
+   git push origin feature/your-feature-name
+   ```
+
+5. **Create pull request**
+   - CI pipeline will run automatically
+   - All checks must pass before merging
+   - Code review required
+
+### Status Badges
+
+The badges at the top of this README show the current status of:
+- [![CI](https://github.com/cbwinslow/db-operations-utility/workflows/CI/CD%20Pipeline/badge.svg)](https://github.com/cbwinslow/db-operations-utility/actions/workflows/ci.yml) - Build and test status
+- [![codecov](https://codecov.io/gh/cbwinslow/db-operations-utility/branch/main/graph/badge.svg)](https://codecov.io/gh/cbwinslow/db-operations-utility) - Code coverage percentage
+- Additional badges for Python version support, license, and code quality tools
+
 ## Contributing
 
 1. Follow PEP 8 style guidelines
@@ -281,6 +377,7 @@ Enable SQL query logging by setting `echo=True` in the configuration:
 3. Include comprehensive error handling
 4. Write unit tests for new features
 5. Update documentation
+6. Ensure all CI checks pass
 
 ## License
 

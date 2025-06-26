@@ -5,13 +5,46 @@ __pycache__/
 *.so
 .Python
 venv/
+.venv/
+env/
+.env/
 .env
+
+# Testing and Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.tox/
+
+# Code Quality and Linting
+.mypy_cache/
+.pylint.d/
+
+# Security scan reports
+bandit-report.json
+safety-report.json
+semgrep-report.json
+
+# Documentation builds
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
 
 # IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+*~
 
 # OS
 .DS_Store
